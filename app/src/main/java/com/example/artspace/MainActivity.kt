@@ -58,14 +58,44 @@ fun artApp(){
               imageIdRes = R.drawable.alien_poster,
                 tittleIdRes = R.string.alien_tittle,
                 artistIdRes = R.string.alien_artist,
-                yearIdRes = R.string.alien_year)
+                yearIdRes = R.string.alien_year,
+                onNextClick = {
+                    currentStep++
+                },
+                currentStep = currentStep)
         }
-
+        2 -> {
+            ArtAppWithArgs("Android",
+                imageIdRes = R.drawable.gta_vice_city_f35ea635301dcc711315122022191069_1024_1024,
+                tittleIdRes = R.string.vc_tittle,
+                artistIdRes = R.string.vc_artist,
+                yearIdRes = R.string.vc_year,
+                onNextClick = {
+                    currentStep++
+                },
+                onPreviousClick = {
+                    currentStep--
+                },
+                currentStep = currentStep)
+        }
+       3 -> {
+            ArtAppWithArgs("Android",
+                imageIdRes = R.drawable.s_l1200,
+                tittleIdRes = R.string.blacksabbath_tittle,
+                artistIdRes = R.string.blacksabbath_artist,
+                yearIdRes = R.string.blacksabbath_year,
+                onPreviousClick = {
+                    currentStep--
+                },
+                currentStep = currentStep)
+        }
     }
 }
 @Composable
 fun ArtAppWithArgs(name: String, modifier: Modifier = Modifier
-,imageIdRes  : Int = 0, tittleIdRes : Int = 0, artistIdRes : Int = 0,yearIdRes : Int = 0) {
+,imageIdRes  : Int = 0, tittleIdRes : Int = 0, artistIdRes : Int = 0,yearIdRes : Int = 0,
+                   onNextClick: () -> Unit = {},onPreviousClick : () ->Unit = {},
+                   currentStep : Int = 1) {
     Text(
         text = "Hello $name!",
         modifier = modifier
@@ -92,11 +122,11 @@ fun ArtAppWithArgs(name: String, modifier: Modifier = Modifier
 
             Spacer(modifier = Modifier.height(40.dp))
             Row(){
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = onPreviousClick) {
                     Text(text = "Previous")
                 }
                 Spacer(modifier = Modifier.width(25.dp))
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = onNextClick) {
                     Text(text = "Next")
                 }
             }
