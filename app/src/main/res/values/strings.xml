@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ArtSpace</string>
+    <string name="alien_tittle">Alien</string>
+    <string name="alien_artist">Ridley Scott</string>
+    <string name="alien_year">1979</string>
+    <string name="vc_tittle">Grand Theft Auto : Vice City</string>
+    <string name="vc_artist">Rockstar Games</string>
+    <string name="vc_year">2002</string>
+    <string name="blacksabbath_tittle">Black Sabbath</string>
+    <string name="blacksabbath_artist">Black Sabbath</string>
+    <string name="blacksabbath_year">1970</string>
 </resources>
